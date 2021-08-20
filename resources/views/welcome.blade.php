@@ -275,7 +275,7 @@
             </div>
 
 
-            <div class="pricing pricing-palden d-flex flex-wrap justify-content-center">
+            <div class="pricing pricing-palden d-flex flex-wrap justify-content-center" id="pricing">
 
 
                 <div class="pricing-item">

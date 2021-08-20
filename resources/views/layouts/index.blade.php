@@ -1,92 +1,37 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}"> @livewireStyles {{-- client cite css  --}}
+    <title>Account - Hotfunnel</title>
+    <base href="">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="content-language" content="en" />
+    <link rel="alternate" href="account" hreflang="x-default" />
     <link href="{{ asset('images/default/favicon.png') }}" rel="shortcut icon" />
     <link href="{{ asset('ui/css/bootstrap.min.css?v=710') }}" id="css_theme_style" rel="stylesheet"
         media="screen,print">
     <link href="{{ asset('ui/css/custom.css?v=710') }}" rel="stylesheet" media="screen,print">
     <link href="{{ asset('ui/css/animate.min.css?v=710') }}" rel="stylesheet" media="screen,print">
-    <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
-<body class="font-sans antialiased" data-theme-style="light">
-    <div class="min-h-screen bg-gray-100">
-    <main>
-        <div class="app-container">
-            <section class="app-sidebar d-print-none">
-                <div class="app-sidebar-title">
-                    <a href="">H</a>
-                </div>
-                <ul class="app-sidebar-links">
-                    <li class="">
-                        <a href="dashboard" data-toggle="tooltip" data-placement="right" title="Dashboard"><i
-                                class="fa fa-fw fa-th"></i></a>
-                    </li>
-                    <li class="">
-                        <a href="dashboard/goals" data-toggle="tooltip" data-placement="right" title="Goals"><i
-                                class="fa fa-fw fa-bullseye"></i></a>
-                    </li>
-                    <li class="">
-                        <a href="realtime" data-toggle="tooltip" data-placement="right" title="Realtime"><i
-                                class="fa fa-fw fa-clock"></i></a>
-                    </li>
-                    <li class="">
-                        <a href="visitors" data-toggle="tooltip" data-placement="right" title="Visitors"><i
-                                class="fa fa-fw fa-user-friends"></i></a>
-                    </li>
-                    <li class="">
-                        <a href="heatmaps" data-toggle="tooltip" data-placement="right" title="Heatmaps"><i
-                                class="fa fa-fw fa-fire"></i></a>
-                    </li>
-                    <li class="">
-                        <a href="replays" data-toggle="tooltip" data-placement="right" title="Replays"><i
-                                class="fa fa-fw fa-video"></i></a>
-                    </li>
-                    <li class="">
-                        <a href="websites" data-toggle="tooltip" data-placement="right" title="Websites"><i
-                                class="fa fa-fw fa-server"></i></a>
-                    </li>
-                    <li class="">
-                        <a href="teams" data-toggle="tooltip" data-placement="right" title="Teams"><i
-                                class="fa fa-fw fa-user-shield"></i></a>
-                    </li>
-                    <li>
-                        <a href="help" target="_blank" data-toggle="tooltip" data-placement="right" title="Help"><i
-                                class="fa fa-fw fa-question"></i></a>
-                    </li>
-                </ul>
-            </section>
-            <section class="app-content">
-                @include('layouts.partials.nav')
-                {{ $slot }}
-                @include('layouts.partials.footer')
-            </section>
-        </div>
-        <div id="loading" style="display: none;">
-            <div class="text-center">
-                <div class="spinner-grow text-primary" role="status">
-                    <span class="sr-only">Loading..</span>
-                </div>
-            </div>
-        </div>
-    </main>
-    </div> @livewireScripts <input type="hidden" name="global_url" value="" />
+<body class="" data-theme-style="light">
+
+
+@yield('content')
+    <input type="hidden" name="global_url" value="" />
     <input type="hidden" name="global_token" value="b6bae654a8328c6c315aafb66eea8a59" />
     <input type="hidden" name="global_number_decimal_point" value="." />
     <input type="hidden" name="global_number_thousands_separator" value="," />
     <script>
-        window.altum = {};
+        /* Some global variables */
+    window.altum = {};
     let global_token = document.querySelector('input[name="global_token"]').value;
     let url = document.querySelector('input[name="global_url"]').value;
     let decimal_point = document.querySelector('[name="global_number_decimal_point"]').value;
     let thousands_separator = document.querySelector('[name="global_number_thousands_separator"]').value;
     </script>
+
     <script src="{{ asset('ui/js/jquery.min.js?v=710') }}"></script>
     <script src="{{ asset('ui/js/popper.min.js?v=710') }}"></script>
     <script src="{{ asset('ui/js/bootstrap.min.js?v=710') }}"></script>
@@ -98,6 +43,7 @@
     <script>
         'use strict';
 
+                    /* Billing type handler */
                     let billing_type = () => {
                         let type = document.querySelector('select[name="billing_type"]').value;
 
@@ -138,8 +84,10 @@
 
                             let chosen_theme_style = event.currentTarget.getAttribute('data-choose-theme-style');
 
+                            /* Set a cookie with the new theme style */
                             set_cookie('theme_style', chosen_theme_style, 30, "");
 
+                            /* Change the css and button on the page */
                             let css = document.querySelector(`#css_theme_style`);
 
                             document.querySelector(`[data-theme-style]`).setAttribute('data-theme-style', chosen_theme_style);
@@ -163,9 +111,6 @@
 
                     })
     </script>
-</body>
-
-</html>
 </body>
 
 </html>
