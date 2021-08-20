@@ -20,7 +20,7 @@
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="{{ url('admin') }}">
+                        <a class="dropdown-item" href="{{ url('owner') }}">
                             <i class="fa fa-fw fa-sm fa-user-shield mr-1"></i>Admin
                         </a>
                         <a class="dropdown-item" href="{{ url('users/teams') }}">

@@ -118,7 +118,7 @@
         </li>
 
         <li class="">
-            <a class="nav-link d-flex flex-row" href="{{ asset('admin/setting') }}">
+            <a class="nav-link d-flex flex-row" href="{{ asset('admin/website-setting') }}">
                 <div class="col-1 d-flex align-items-center"><i class="fa fa-fw fa-sm fa-wrench"></i></div>
                 <div class="col">
                     <span class="d-inline">Website Settings</span>
